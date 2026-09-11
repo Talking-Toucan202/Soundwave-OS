@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michael Jackson - Artist Page</title>
+</head>
+<body>
+
+<style>
+.topnav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px;
+  background: rgb(0, 0, 0);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.topnav a {
+  text-decoration: underline;
+  font-weight: 100;
+  color: #ffffff;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.topnav a:hover {
+  color:#c51224;
+  transform: scale(1.2);
+}
+        
+        body {
+          background: black;
+          font-family: sans-serif;
+        }
+
+ /* ===== HERO SECTION ===== */
+        
+.hero{
+position:relative;
+width:100%;
+height:100vh;
+overflow:hidden;
+}
+        
+.hero video{
+position:absolute;
+top:50%;
+left:50%;
+width:100%;
+height:100%;
+object-fit:cover;
+transform:translate(-50%, -50%);
+z-index:1;
+}
+        
+.overlay{
+position:absolute;
+inset:0;
+background:rgba(0, 0, 0, 0.444);
+z-index:2;
+}
+        
+.signature-container{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%, -50%);
+z-index:3;
+width:80%;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+        
+.signature{
+width:750px;
+max-width:250%;
+          
+/* "written in" effect */
+opacity:0;
+filter:drop-shadow(0 0 15px rgba(255,255,255,0.35));
+        
+animation:
+fadeIn 3.5s ease forwards,
+drawIn 0s ease forwards;
+animation-delay:0.3s;
+}
+        
+/* ===== ANIMATIONS ===== */
+        
+@keyframes fadeIn{
+to{opacity:1;}}
+@keyframes drawIn{
+from{clip-path: inset(0 100% 0 0);}
+to{clip-path: inset(0 0 0 0);}}
+@media(max-width:768px){.topnav{gap:25px;flex-wrap:wrap;padding:20px;}
+.topnav a{font-size:12px;}}
+</style>
+</head>
+<body>
+        
+<!-- ===== HERO SECTION ===== -->
+        
+<section class="hero">
+<video autoplay muted loop playsinline>
+<source src="mj video.mov" type="video/mp4">
+</video>
+        
+<div class="overlay"></div>
+<div class="signature-container">
+<img class="signature" src="MJ Logo.png" alt="Michael Jackson Signature">
+</div>
+        
+<!-- NAVIGATION -->
+<div class="topnav">
+<a href="index.html">Lounge</a>
+<a href="artists.html">Artist Catalog</a>
+<a href="tours.html">Tours</a>
+<a href="#">Fashion</a>
+<a href="#">The Personal Vault</a>
+</div>
+</section>
+
+<style>
+.mj-era-slider{ position:relative;width:100%;height:100vh;overflow:hidden;background:black;}
+
+.mj-viewport{
+width:100%;
+height:100%;
+overflow:hidden;
+}
+
+.mj-track{
+display:flex;
+height:100%;
+transition:transform 1s ease;
+}
+        
+.mj-slide{
+min-width:100%;
+position:relative;
+}
+        
+.mj-bg{
+position:absolute;
+inset:0;
+background-size:cover;
+background-position:center;
+filter:brightness(.80);
+}
+        
+.mj-overlay{
+position:absolute;
+inset:0;
+}
+.mj-content{
+position:relative;
+z-index:2;
+height:100%;
+display:flex;
+justify-content:flex-end;
+align-items:center;
+padding-right:9%;
+}
+        
+.mj-info{
+width:420px;
+max-width:90%;
+text-align:center;
+}
+
+.mj-links{
+list-style:none;
+padding:0;
+margin:0;
+}
+        
+.mj-links li{
+margin:18px 0;
+}
+        
+.mj-links a{
+color:white;
+text-decoration:none;
+text-transform:uppercase;
+letter-spacing:3px;
+transition:.3s ease;
+font-family:Helvetica, sans-serif;
+font-weight: 100;
+}
+        
+.mj-links a:hover{
+letter-spacing:5px;
+opacity:.7;
+}
+        
+ /* =ERA COLORS (HOVER)= */
+.era-off-the-wall .mj-links a:hover{ color:#5DA7CD; }
+.era-thriller .mj-links a:hover{ color:#E2CE91; }
+.era-bad .mj-links a:hover{ color:#D91100; }
+.era-dangerous .mj-links a:hover{ color:#D7C402; }
+.era-history .mj-links a:hover{ color:#000000; }
+.era-botdf .mj-links a:hover{ color:#8c0c00; }
+.era-invincible .mj-links a:hover{ color:#671B1A; }
+        
+/* underline colors */
+.era-off-the-wall .mj-links a::after{ background:#5DA7CD; }
+.era-thriller .mj-links a::after{ background:#E2CE91; }
+.era-bad .mj-links a::after{ background:#D91100; }
+.era-dangerous .mj-links a::after{ background:#D7C402; }
+.era-history .mj-links a::after{ background:#000000; }
+.era-botdf .mj-links a::after{ background:#8c0c00; }
+.era-invincible .mj-links a::after{ background:#671B1A; }
+        
+.mj-arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+z-index:10;
+background:none;
+border:none;
+color:white;
+font-size:3rem;
+cursor:pointer;
+padding:6px 12px;
+transition:.3s ease;
+}
+        
+.mj-arrow:hover{
+opacity:.5;
+}
+        
+.mj-prev{ left:15px; }
+.mj-next{ right:15px; }
+        
+.mj-dots{
+position:absolute;
+bottom:15px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+gap:10px;
+z-index:10;
+}
+        
+.mj-dot{
+width:10px;
+height:10px;
+border-radius:50%;
+background:rgba(255,255,255,.3);
+cursor:pointer;
+}
+        
+.mj-dot.active{
+background:white;
+}
+
+.mj-logo{
+  width:100%;
+  max-width:550px;
+
+  height:auto;
+  object-fit:contain;
+
+  display:block;
+}
+
+.explore-link {
+    font-size: 30px;
+}
+        
+/* = MOBILE= */
+ @media(max-width:768px){
+.mj-arrow{
+font-size:2.2rem;
+}
+.mj-info{
+    text-align:center;
+ }
+}
+</style>
+</head>
+        
+<body>
+<section class="mj-era-slider">
+ 
+  <style>
+  .mj-bg {
+  width: 100%;
+  height: 100vh;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+  </style>
+        
+<!-- LEFT ARROW -->
+<button class="mj-arrow mj-prev">&#10094;</button>
+<div class="mj-viewport"> <div class="mj-track">
+        
+ <!-- OFF THE WALL -->
+<div class="mj-slide era-off-the-wall" id="slider-page-1">
+<div class="mj-bg" style="background-image:url('off-the-wall-2.png');">
+</div>
+<div class="mj-overlay"></div>
+        
+<div class="mj-content"><div class="mj-info">
+<img src="off-the-wall-logo.png" class="mj-logo">
+        
+ <ul class="mj-links">
+<li><a href="off-the-wall-album-page.html" class="explore-link">Explore Era</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+ <!-- Thriller -->
+ <div class="mj-slide era-thriller">
+    <div class="mj-bg" style="background-image:url('thriller.png');"></div>
+    <div class="mj-overlay"></div>
+            
+    <div class="mj-content"><div class="mj-info">
+    <img src="thriller-logo.png" class="mj-logo">
+            
+     <ul class="mj-links">
+    <li><a href="thriller-album-page.html" class="explore-link">Explore Era</a></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+
+     <!-- Bad -->
+<div class="mj-slide era-bad">
+    <div class="mj-bg" style="background-image:url('bad.png');"></div>
+    <div class="mj-overlay"></div>
+            
+    <div class="mj-content"><div class="mj-info">
+    <img src="bad logo.png" class="mj-logo">
+            
+     <ul class="mj-links">
+    <li><a href="bad-album-page.html"class="explore-link">Explore Era</a></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+
+     <!-- Dangerous -->
+<div class="mj-slide era-dangerous">
+    <div class="mj-bg" style="background-image:url('dangerous-1.png');"></div>
+    <div class="mj-overlay"></div>
+            
+    <div class="mj-content"><div class="mj-info">
+    <img src="dangerous-logo.png" class="mj-logo">
+            
+     <ul class="mj-links">
+    <li><a href="dangerous-album-page.html"class="explore-link">Explore Era</a></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+
+     <!-- History -->
+<div class="mj-slide era-history">
+    <div class="mj-bg" style="background-image:url('history.png');"></div>
+    <div class="mj-overlay"></div>
+            
+    <div class="mj-content"><div class="mj-info">
+    <img src="history-logo.png" class="mj-logo">
+            
+     <ul class="mj-links">
+    <li><a href="History-Album-Page.html"class="explore-link">Explore Era</a></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+
+     <!-- Blood on the Dancefloor -->
+<div class="mj-slide era-blood-on-the-dance-floor">
+    <div class="mj-bg" style="background-image:url('botdf.png');"></div>
+    <div class="mj-overlay"></div>
+            
+    <div class="mj-content"><div class="mj-info">
+    <img src="botdf-logo.png" class="mj-logo">
+            
+     <ul class="mj-links">
+    <li><a href="blood-on-the-dancefloor-album-page.html"class="explore-link">Explore Era</a></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+
+         <!--Invincible-->
+<div class="mj-slide era-invincible">
+    <div class="mj-bg" style="background-image:url('invincible.png');"></div>
+    <div class="mj-overlay"></div>
+            
+    <div class="mj-content"><div class="mj-info">
+    <img src="invincible-logo.png" class="mj-logo">
+            
+     <ul class="mj-links">
+    <li><a href="invincible-album-page.html"class="explore-link"> Explore Era</a></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+</div>
+</div>
+        
+<!-- RIGHT ARROW -->
+<button class="mj-arrow mj-next">&#10095;</button>
+        
+<!-- DOTS -->
+<div class="mj-dots"></div>
+</section>
+<script>
+
+const track = document.querySelector(".mj-track");
+const slides = document.querySelectorAll(".mj-slide");
+const nextBtn = document.querySelector(".mj-next");
+const prevBtn = document.querySelector(".mj-prev");
+const dotsContainer = document.querySelector(".mj-dots");
+        
+let index = 0;
+let intervalTime = 7000; // 7 seconds
+let autoSlide;
+        
+/* CREATE DOTS */
+slides.forEach((_, i) => {
+const dot = document.createElement("div");
+dot.classList.add("mj-dot");
+if(i === 0) dot.classList.add("active");       
+dot.addEventListener("click", () => {
+index = i;
+updateSlider();
+resetAuto();
+});
+        
+dotsContainer.appendChild(dot);
+});
+const dots = document.querySelectorAll(".mj-dot");
+
+function updateSlider(){
+track.style.transform = `translateX(-${index * 100}%)`;
+dots.forEach(d => d.classList.remove("active"));
+dots[index].classList.add("active");
+}
+        
+        /* NEXT */
+        function nextSlide(){
+          index = (index + 1) % slides.length;
+          updateSlider();
+        }
+        
+        /* PREV */
+        function prevSlide(){
+          index = (index - 1 + slides.length) % slides.length;
+          updateSlider();
+        }
+        
+        /* BUTTONS */
+        nextBtn.addEventListener("click", () => {
+          nextSlide();
+          resetAuto();
+        });
+        
+        prevBtn.addEventListener("click", () => {
+          prevSlide();
+          resetAuto();
+        });
+        
+        /* AUTO SLIDE */
+        function startAuto(){
+          autoSlide = setInterval(nextSlide, intervalTime);
+        }
+        
+        function resetAuto(){
+          clearInterval(autoSlide);
+          startAuto();
+        }
+        
+        startAuto();
+        updateSlider();
+        </script>
+        </body>
+
+<section class="collector-section">
+
+  <style>
+
+  .collector-section{
+    padding: 80px 5vw;
+    position: relative;
+    background: transparent;
+    font-family: sans-serif;
+  }
+  
+  /* background layer */
+  .collector-section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: url('iconic-items-bg.png') center/cover no-repeat;
+    opacity:.5;
+    z-index:0;
+  }
+  
+  .collector-header{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 35px auto;
+    position:relative;
+    z-index:2;
+  font-weight: 100;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  
+  .collector-header h1{
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 100;
+    color:white;
+    margin-bottom:10px;
+  }
+  
+  .collector-header p{
+    font-size:14px;
+    color:#ffffff;
+    line-height:1.6;
+    max-width:520px;
+    font-weight: 100;
+  }
+  
+  .collector-wrapper{
+    display:flex;
+    justify-content:center;
+    position:relative;
+    z-index:2;
+  }
+  
+  .collector-shelf{
+    width:min(1100px,92vw);
+    padding:80px 25px 45px;
+    border-radius:14px;
+  
+    background: linear-gradient(
+      135deg,
+      #e6e6e6,
+      #9c9c9c,
+      #d9d9d9,
+      #7a7a7a,
+      #f2f2f2
+    );
+  
+    box-shadow:
+      inset 0 3px 12px rgba(255,255,255,0.4),
+      inset 0 -18px 25px rgba(0,0,0,0.45),
+      0 30px 70px rgba(0,0,0,0.6);
+  
+    position:relative;
+    overflow:visible;
+  }
+  
+  .collector-shelf::after{
+    content:"";
+    position:absolute;
+    bottom:-38px;
+    left:0;
+    width:100%;
+    height:52px;
+  
+    background: linear-gradient(180deg,#5a5a5a,#1a1a1a);
+  
+    border-bottom-left-radius:14px;
+    border-bottom-right-radius:14px;
+  
+    box-shadow:
+      inset 0 2px 8px rgba(255,255,255,0.15),
+      0 18px 30px rgba(0,0,0,0.5);
+  }
+  
+  .collector-items{
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  
+  .collector-item{
+    flex:1;
+    min-width:200px;
+    max-width:320px;
+    border-radius:0px;
+    overflow:hidden;
+    cursor:pointer;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    box-shadow:
+      0 10px 18px rgba(0,0,0,0.55),
+      inset 0 1px 0 rgba(255,255,255,0.05);
+    transition:0.35s ease;
+    position:relative;
+  }
+  
+  .collector-item:hover{
+    transform: translateY(-24px) scale(1.08);
+    z-index:10;
+    box-shadow:
+      0 35px 50px rgba(0,0,0,0.7);
+  }
+  
+  .collector-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  
+  .collector-item span{
+    text-align:center;
+    padding:8px;
+    font-size:12px;
+    background:rgb(53, 54, 56);
+    color:white;
+  }
+  
+
+  .collector-modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0, 0, 0, 0.767);
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+    padding:20px;
+  }
+  
+  .collector-modal-content{
+    width:min(1980px);
+    width:max(1050px);
+    background:#25364B;
+    border-radius:0px;
+    padding:25px;
+    text-align:center;
+    position:relative;
+    color:#E8E6D9;
+    font-weight: 100;
+  }
+  
+  .collector-close{
+    position:absolute;
+    top:10px;
+    right:15px;
+    cursor:pointer;
+    font-size:20px;
+  }
+  
+  .collector-images{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    margin-top:15px;
+    flex-wrap:wrap;
+  }
+  
+  .collector-images img{
+    width:700px;
+    height:400px;
+    object-fit:cover;
+    border-radius:8px;
+  }
+  
+  @media(max-width:450px){
+    .collector-item{
+      width:80%;
+    }
+  }
+  </style>
+  
+  <div class="collector-header">
+    <h1>Signature & Rare Items</h1>
+    <p>
+      View the iconic and rare items that  made Michael Jackson who he was and what his legacy is.
+    </p>
+  </div>
+  
+  <!-- SHELF -->
+  <div class="collector-wrapper">
+    <div class="collector-shelf">
+      <div class="collector-items" id="collectorItems"></div>
+    </div>
+  </div>
+  
+
+  <div class="collector-modal" id="collectorModal">
+    <div class="collector-modal-content">
+      <div class="collector-close" onclick="closeCollector()">✕</div>
+      <h2 id="cTitle"></h2>
+      <p id="cDesc"></p>
+      <div class="collector-images" id="cImages"></div>
+    </div>
+  </div>
+  
+  <script>
+ 
+  const collectorData = [
+    {
+      title:"Rhinestone/ Sequin Glove",
+      img:"glove cover.avif",
+      desc:" Michael debuted the iconic one glove look on March 25th, 1983 during the Motown 25 TV Special. ",
+      angles:["rhinestone-sequin glove.jpeg"]
+    },
+    {
+      title:"Military Jackets",
+      img:"military jackets cover.png",
+      desc:"While there is no concrete answer or explination as to why Michael would walk around in these blinged out military style jackets, one thing is for sure. These jackets helped build a visual identity that is extremely recognizable and fashionably represents the King of Pop's aura.",
+      angles:["Military-Jacket Breakdown.png"]
+    },
+    {
+      title:"Handwritten Lyrics for Billie Jean",
+      img:"handwritten lyrics cover.png",
+      desc:"Apearently, this image is part of the handwritten manuscript that documeneted the lyrics for the song Billie Jean; handwritten by Michael Jackson himself.",
+      angles:["handwritten lyrics.png"]
+    },
+    {
+      title:"Thriller Jacket",
+      img:"thriler jacket cover.png",
+      desc:"Designed for the Thriller short film/ music video, the jacket's bold red color and geometric design helped Michael Jackson stand out against the film's dark horror setting.",
+      angles:["thriler jacket.png"]
+    },];
+  
+  const container = document.getElementById("collectorItems");
+  
+  /* BUILD SHELF */
+  collectorData.forEach(item=>{
+    const div=document.createElement("div");
+    div.className="collector-item";
+    div.onclick=()=>openCollector(item);
+  
+    div.innerHTML=`
+      <img src="${item.img}">
+      <span>${item.title}</span>
+    `;
+  
+    container.appendChild(div);
+  });
+  
+  /* OPEN MODAL */
+  function openCollector(item){
+    document.getElementById("collectorModal").style.display="flex";
+    document.getElementById("cTitle").innerText=item.title;
+    document.getElementById("cDesc").innerText=item.desc;
+  
+    const box=document.getElementById("cImages");
+    box.innerHTML="";
+  
+    item.angles.forEach(src=>{
+      const img=document.createElement("img");
+      img.src=src;
+      box.appendChild(img);
+    });
+  }
+  
+  /* CLOSE MODAL */
+  function closeCollector(){
+    document.getElementById("collectorModal").style.display="none";
+  }
+  </script>
+  </body>
+  </section>
+
+<section class="legacy-globe">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    color:white;
+}
+
+/*SECTION*/
+
+.legacy-globe{
+
+    position:relative;
+    min-height:30vh;
+    background:#25364B;
+    background-size:cover;
+    background-position:center;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:0px 0px;
+}
+
+.legacy-globe::before{
+    content:"";
+    position:absolute;
+    inset:0;
+}
+
+
+.globe-wrapper{
+
+    position:relative;
+    width:1400px;
+    max-width:95vw;
+    height:950px;
+    z-index:2;
+}
+
+
+.earth{
+
+    position:absolute;
+    width:1045px;
+    left:36%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    user-select:none;
+    pointer-events:none;
+}
+
+/* INTRO PANEL */
+
+.legacy-intro{
+
+    position:absolute;
+    right:-2px;
+    top:50%;
+    transform:translateY(-50%);
+    width:320px;
+    text-align:center;
+    z-index:5;
+}
+
+.legacy-intro h2{
+
+    font-size:3rem;
+    text-transform:uppercase;
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.legacy-intro h2 span{
+    color:#C29C6F;
+    font-style:italic;
+    font-weight: 100;
+}
+
+
+.legacy-intro p{
+    color:rgba(255,255,255,.85);
+    line-height:1.8;
+    font-size:.95rem;
+}
+
+/* STARS */
+
+.star-pin{
+
+    position:absolute;
+    width:35px;
+    height:35px;
+    transform:translate(-50%,-50%);
+    cursor:pointer;
+    z-index:10;
+    transition:.3s;
+}
+
+.star-pin:hover{
+    transform:
+    translate(-50%,-50%)
+    scale(1.25);
+}
+
+.star-pin svg{
+
+    width:100%;
+    height:100%;
+    fill:#C29C6F;
+    filter:
+    drop-shadow(0 0 10px#C29C6F)
+    drop-shadow(0 0 20px #C29C6F);
+}
+
+.star-pin.active svg{
+    fill:#ffdbae;
+}
+
+/* INFO CARD */
+
+.info-card{
+
+    position:absolute;
+    width:350px;
+    background: rgba(0, 0, 0, 0.218);
+    backdrop-filter:blur(15px);
+    border:  1px solid rgba(255, 255, 255, 0);
+    border-radius:20px;
+    padding:15px;
+    opacity:0;
+    pointer-events:none;
+    transition:.35s;
+    z-index:20;
+}
+
+.info-card.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.info-title{
+
+    font-size:1.8rem;
+    margin-bottom:15px;
+}
+
+.location-list{
+    list-style:none;
+}
+
+.location-list li{
+
+    padding:12px 0;
+    border-bottom:
+    1px solid rgba(255, 255, 255, 0.234);
+    cursor:pointer;
+    transition:.25s;
+}
+
+.location-list li:hover{
+
+    color:#fcd093;
+    padding-left:10px;
+}
+
+.detail-image{
+
+    width:100%;
+    height:125px;
+    border-radius:0px;
+    overflow:hidden;
+    margin:20px 0;
+    background:
+    rgba(255,255,255,.06);
+}
+
+.detail-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.watch-btn{
+
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 22px;
+    border-radius:999px;
+    border:1px solid white;
+    color:white;
+    text-decoration:none;
+}
+
+.watch-btn:hover{
+    background:white;
+    color:black;
+}
+
+.back-btn{
+    margin-top:20px;
+    color:#C29C6F;
+    cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+    .earth{
+        width:525px;
+        left:50%;
+        top:35%;
+    }
+
+    .legacy-intro{
+
+        position:absolute;
+        width:90%;
+        left:50%;
+        top:80%;
+        transform:translateX(-50%);
+    }
+}
+
+</style>
+</head>
+<body>
+
+<section class="legacy-globe">
+
+<div class="globe-wrapper" id="globeWrapper">
+
+    <!-- INTRO -->
+
+    <div class="legacy-intro">
+
+        <h2>
+            You Rock<br>
+            <span>My World</span>
+        </h2>
+
+        <div class="intro-line"></div>
+
+        <p>
+            Explore Michael Jackson's global legacy through
+            visting the various locations where concerts, world tours, and unforgettable performances where held.
+        </p>
+
+    </div>
+
+    <!-- EARTH -->
+    <img
+    src="earth.png"
+    class="earth">
+
+    <!-- North America -->
+
+    <div class="star-pin"
+    data-region="northamerica"
+    style="left:13%; top:43%;">
+
+        <svg viewBox="0 0 24 24">
+        <path d="M12 2l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 16l-5.4 2.8 1-6.1L3.2 8.4l6.1-.9z"/>
+        </svg>
+
+    </div>
+
+    <!-- Europe -->
+
+    <div class="star-pin"
+    data-region="europe"
+    style="left:36%; top:42%;">
+
+        <svg viewBox="0 0 24 24">
+        <path d="M12 2l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 16l-5.4 2.8 1-6.1L3.2 8.4l6.1-.9z"/>
+        </svg>
+
+    </div>
+
+    <!-- Asia -->
+    <div class="star-pin"
+    data-region="asia"
+    style="left:52%; top:37%;">
+
+        <svg viewBox="0 0 24 24">
+        <path d="M12 2l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 16l-5.4 2.8 1-6.1L3.2 8.4l6.1-.9z"/>
+        </svg>
+
+    </div>
+
+    <!-- South America -->
+    <div class="star-pin"
+    data-region="southamerica"
+    style="left:22%; top:60%;">
+
+        <svg viewBox="0 0 24 24">
+        <path d="M12 2l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 16l-5.4 2.8 1-6.1L3.2 8.4l6.1-.9z"/>
+        </svg>
+
+    </div>
+
+    <!-- Africa -->
+    <div class="star-pin"
+    data-region="africa"
+    style="left:38%; top:55%;">
+
+        <svg viewBox="0 0 24 24">
+        <path d="M12 2l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 16l-5.4 2.8 1-6.1L3.2 8.4l6.1-.9z"/>
+        </svg>
+
+    </div>
+
+     <!-- Oceania -->
+     <div class="star-pin"
+     data-region="oceania"
+     style="left:63%; top:66%;">
+ 
+         <svg viewBox="0 0 24 24">
+         <path d="M12 2l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 16l-5.4 2.8 1-6.1L3.2 8.4l6.1-.9z"/>
+         </svg>
+ 
+     </div>
+
+    <!-- East Asia -->
+    <div class="star-pin"
+    data-region="eastasia"
+    style="left:61%; top:50%;">
+
+        <svg viewBox="0 0 24 24">
+        <path d="M12 2l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 16l-5.4 2.8 1-6.1L3.2 8.4l6.1-.9z"/>
+        </svg>
+
+    </div>
+
+    <!-- CARD -->
+    <div
+    class="info-card"
+    id="infoCard"></div>
+
+</div>
+
+</section>
+
+<script>
+
+/* DATA */
+
+const locations = {
+
+    europe:{
+        title:"Europe",
+
+        events:[
+
+        {
+                name:"Bad Tour: Wembley Stadium",
+                image:"wembley.png",
+                description:
+                "The concert was recorded on July 16, 1988 at the Wembley Stadium in London. It was performed to a crowd of 72 thousand people (with Princess Diana in attendance).",
+                link:"tours.html#wembley-stadium"
+            },
+
+            {
+                name:"HIStory: Live in Bucharest",
+                image:"bucharest.png",
+                description:
+                "HIStory: Live in Bucharest was the third concert of the HIStory World Tour and had a sold-out attendance of 90,000. The concert was from the first leg of the Dangerous World Tour, and the last night of said leg.",
+                link:"tours.html#live-in-bucharest"
+            },
+
+            {
+                name:"HIStory Tour: Munich",
+                image:"munich-2.png",
+                description:
+                "Part of the charity concerts (MJ & Friends) that Michael held to help raise money for children. ",
+                link:"tours.html#munich-tour"
+            },
+        ]
+    },
+
+    asia:{
+        title:"Asia",
+
+        events:[
+
+            {
+                name:"Dangerous Tour: Moscow",
+                image:"dangerous-2.png",
+                description:
+                "The Dangerous World Tour, launched in support of his 8th studio album Dangerous (1991), lasted from Jun. 27, 1992, until Nov. 11, 1993. The show in Moscow was part of the second leg of the tour and had an attendance of 70,000.",
+                link:"tours.html#moscow-tour"
+            },
+
+        ]
+    },
+
+    northamerica:{
+        title:"North America",
+
+        events:[
+
+            {
+                name:"Triumph Tour",
+                image:"triumph.png",
+                description:
+                "The Triumph Tour was the fourth concert tour by The Jacksons, covering the United States and Canada from July 8 to Sept. 26, 1981. The tour grossed $5.5 million.",
+                link:"tours.html#triumph-tour"
+            },
+
+            {
+                name:"Victory Tour",
+                image:"victory.png",
+                description:
+                "The Victory Tour was the fifth and final concert tour by The Jacksons, spanning from July 6 to December 9, 1984. It covered the United States and Canada. The group performed 55 concerts to an audience of approximately 2 million, a majority of whom came to see Michael Jackson, whose newest album at the time (Thriller) came out.,",
+                link:"tours.html#victory-tour"
+            },
+
+            {
+                name:"30th Anniversary Celebration",
+                image:"30th.png",
+                description:
+                "The 30th Anniversary Celebration was held at Madison Square Garden in New York City on Sept. 7 and 10, 2001. In Nov. 2001, CBS aired the two concerts as a two-hour special honoring Jackson's 30th year as a solo artist.",
+                link:"tours.html#30th-celebration"
+            },
+
+        ]
+    },
+
+    southamerica:{
+        title:"South America",
+
+        events:[
+
+            {
+                name:"Dangerous Tour: Buenos Aires",
+                image:"ba.png",
+                description:
+                "The Dangerous World Tour, launched in support of his 8th studio album Dangerous (1991), lasted from Jun. 27, 1992, until Nov. 11, 1993. The shows in Buenos Aires where part of the second half of the tour.",
+                link:"tours.html#buenos-aires-tour"
+            }
+
+        ]
+    },
+
+    africa:{
+        title:"Africa",
+
+        events:[
+
+            {
+                name:"HIStory Tour: Live in Tunis 1996",
+                image:"tunis.png",
+                description:
+                "HIStory: Live in Tunis 1996 is the 11th concert of the HIStory World Tour. The concert was aired on September 18, 2010, by the Nessma TV channel in Tunisia. Before then, only parts of this concert were shown on television as well as a very poor quality amateur-filmed far from the stage.",
+                link:"tours.html#live-in-tunis"
+            }
+
+        ]
+    },
+
+    oceania:{
+        title:"Oceania",
+
+        events:[
+
+            {
+                name:"HIStory Tour (Sydney)",
+                image:"sydney.png",
+                description:
+                "The HIStory World Tour lasted from Sept.7, 1996, to Oct. 15, 1997. The shows in Sydney specifically had 86,000 people in attendance,and the HIStory tour became the highest-grossing tour of the 1990s.",
+                link:"tours.html#sydney-tour"
+            }
+
+        ]
+    },
+
+
+    eastasia:{
+        title:"East Asia",
+
+        events:[
+
+            {
+                name:"Bad Tour: Tokyo",
+                image:"tokyo.png",
+                description:
+                "The Bad World Tour spanned from Sept. 12th 1987 - Jan 27th 1989. The Tokyo shows where the first shows of the tour. ",
+                link:"tours.html#tokyo-tour"
+            },
+
+            {
+                name:"HIStory Tour (Seoul)",
+                image:"seoul.png",
+                description:
+                "The October 13, 1996 show in Seoul was released on VHS as HIStory World Tour: Live in Seoul on November 5, 1997. This show is famous for the incident where a male fan climbed up the crane while Jackson was performing Earth Song.",
+                link:"tours.html#seoul-tour"
+            },
+        ]
+    }
+
+};
+
+/* ELEMENTS */
+
+const pins =
+document.querySelectorAll(".star-pin");
+
+const card =
+document.getElementById("infoCard");
+
+const wrapper =
+document.getElementById("globeWrapper");
+
+const line =
+document.getElementById("connectorLine");
+
+let currentPin = null;
+let currentRegion = null;
+
+/*LOCATION VIEW*/
+
+function showLocation(region,pin){
+
+    currentPin = pin;
+    currentRegion = region;
+
+    const data = locations[region];
+
+    card.innerHTML = `
+
+    <div class="info-title">
+        ${data.title}
+    </div>
+
+    <ul class="location-list">
+
+    ${data.events.map((event,index)=>`
+
+        <li onclick="
+        showEvent('${region}',${index})">
+
+        ${event.name}
+
+        </li>
+
+    `).join("")}
+
+    </ul>
+
+    `;
+
+    showCard(pin);
+}
+
+/* EVENT VIEW */
+
+window.showEvent =
+function(region,index){
+
+    const event =
+    locations[region].events[index];
+
+    card.innerHTML = `
+
+    <div class="info-title">
+    ${event.name}
+    </div>
+
+    <p>
+    ${event.description}
+    </p>
+
+    <div class="detail-image">
+        <img src="${event.image}">
+    </div>
+
+    <a href="${event.link}"
+    class="watch-btn">
+
+    View Tour Page
+
+    </a>
+
+    <div class="back-btn"
+    onclick="
+    showLocation(
+    '${region}',
+    currentPin
+    )">
+
+    ← Back
+
+    </div>
+
+    `;
+
+    drawLine();
+}
+
+/* CARD */
+
+function showCard(pin){
+
+    const pinRect =
+    pin.getBoundingClientRect();
+
+    const wrapRect =
+    wrapper.getBoundingClientRect();
+
+    card.style.left =
+    (pinRect.left -
+    wrapRect.left + 100)
+    +"px";
+
+    card.style.top =
+    (pinRect.top -
+    wrapRect.top - 50)
+    +"px";
+
+    card.classList.add("show");
+
+    drawLine();
+}
+
+/* EVENTS */
+
+pins.forEach(pin=>{
+
+    pin.addEventListener("click",()=>{
+      
+        document
+        .querySelectorAll(".star-pin")
+        .forEach(
+        s=>s.classList.remove("active")
+        );
+
+        pin.classList.add("active");
+
+        showLocation(
+        pin.dataset.region,
+        pin
+        );
+
+    });
+
+});
+
+window.addEventListener(
+"resize",
+()=>{
+
+    if(currentPin){
+
+        showCard(currentPin);
+    }
+
+});
+
+</script>
+</body>
+</section>
+</html>
+    </html>

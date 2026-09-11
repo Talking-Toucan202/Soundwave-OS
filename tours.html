@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tours</title>
+
+<style>
+
+/* GLOBAL*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0b0b0b;
+    color:white;
+    font-family:Helvetica,sans-serif;
+    font-weight: 100;
+    overflow-x:hidden;
+}
+
+/*HERO HEADER*/
+
+.tour-header{
+    position:relative;
+    height:70vh;
+    overflow:hidden;
+}
+
+.header-image{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.display{
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+/* MAIN NAV*/
+
+.main-nav{
+    height:60px;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+    border-bottom:1px solid #222222;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.main-nav a{
+    color:white;
+    text-decoration:underline;
+    letter-spacing:2px;
+    font-size:14px;
+    transition:.3s;
+    transition: 0.3s
+}
+
+.main-nav a:hover{
+    color:#df3a1d;
+    transform: scale(1.2);
+}
+
+/*LED NAV BAR*/
+
+.led-bar{
+
+    height:75px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    background:#111;
+    background-image:
+    radial-gradient(
+        rgba(255,255,255,.10) 1px,
+        transparent 1px
+    );
+
+    background-size:8px 8px;
+    border-top:1px solid #222;
+    border-bottom:1px solid #222;
+}
+
+.led-track{
+
+    display:flex;
+    align-items:center;
+    white-space:nowrap;
+    animation:ledScroll 10s linear infinite;
+}
+
+.led-bar:hover .led-track{
+    animation-play-state:paused;
+}
+
+.led-track span{
+    color:#df3a1d;
+    margin:0 40px;
+    font-size:45px;
+}
+
+.led-track a{
+
+    color:#df3a1d;
+    text-decoration:none;
+    text-transform:uppercase;
+    letter-spacing:4px;
+    font-family:"Courier New", monospace;
+    text-shadow:
+    0 0 5px #df3a1d,
+    0 0 10px #df3a1d,
+    0 0 20px #df3a1d;
+    transition:.3s;
+}
+
+.led-track a:hover{
+
+    color:white;
+    text-shadow:
+    0 0 10px white,
+    0 0 20px white,
+    0 0 40px white;
+}
+
+@keyframes ledScroll{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+/* TOUR CONTAINER */
+
+.tour-container{
+
+    max-width:1500px;
+    margin:auto;
+    padding:120px 50px;
+    display:flex;
+    flex-direction:column;
+    gap:140px;
+}
+
+/* TOUR SECTION*/
+
+.tour-section{
+
+    display:flex;
+    align-items:center;
+    gap:70px;
+}
+
+.reverse{
+    flex-direction:row-reverse;
+}
+
+.tour-video{
+    flex:1;
+}
+
+.tour-video iframe{
+
+    width:100%;
+    border:none;
+    border-radius:18px;
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.5);
+}
+
+.tour-info{
+    flex:1;
+}
+
+.tour-info h2{
+
+    font-size:3.5rem;
+    font-weight: 100;
+    margin-bottom:10px;
+}
+
+.tour-info h3{
+
+    color:#df3a1d;
+    letter-spacing:4px;
+    margin-bottom:25px;
+    font-weight: 100;
+}
+
+/*SECTION HIGHLIGHT*/
+
+.tour-section:target{
+    animation:flash 2s ease;
+}
+
+@keyframes flash{
+
+    0%{
+        transform:scale(1.02);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+/*MOBILE */
+
+@media(max-width:1000px){
+
+    .tour-section,
+    .reverse{
+        flex-direction:column;
+    }
+
+    .tour-info{
+        text-align:center;
+    }
+
+    .header-overlay h1{
+        font-size:3.5rem;
+    }
+
+    .tour-container{
+        padding:80px 25px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<!--HERO -->
+
+<header class="tour-header">
+
+    <img
+    src="Tour Header.png"
+    class="header-image">
+
+    <div class="header-overlay">
+    </div>
+
+</header>
+
+<!--MAIN NAV -->
+
+<nav class="main-nav">
+
+    <a href="index.html">Lounge</a>
+    <a href="artists.html">Artist Catalog</a>
+    <a href="tour.html">Tours</a>
+    <a href="#">Fashion</a>
+    <a href="#">The Personal Vault</a>
+
+</nav>
+
+<!--LED TOUR NAV-->
+
+<div class="led-bar">
+<div class="led-track">
+
+<a href="aa-artist-page.html">AALIYAH</a>
+<span>•</span>
+
+<a href="mj-artist-page.html">MICHAEL JACKSON</a>
+<span>•</span>
+
+<a href="mc-artist-page.html">MARIAH CAREY</a>
+<span>•</span>
+
+<a href="dl-artist-page.html">DUA LIPA</a>
+<span>•</span>
+
+<a href="k-artist-page.html">KYLIE</a>
+<span>•</span>
+
+<a href="sade-artist-page.html">SADE</a>
+<span>•</span>
+
+<a href="seb-artist-page.html">SOPHIE</a>
+<span>•</span>
+
+<a href="ls-artist-page.html">LISA STANSFEILD</a>
+<span>•</span>
+
+<a href="d-artist-page.html">DOUBLE</a>
+<span>•</span>
+
+<a href="lr-artist-page.html">LEEANN RHIMES</a>
+<span>•</span>
+
+<a href="m-artist-page.html">MOLOKO</a>
+<span>•</span>
+
+<a href="ak-artist-page.html">ALICIA KEYS</a><span>•</span>
+
+<a href="aa-artist-page.html">AALIYAH</a>
+</div>
+
+</div>
+
+<!--TOURS -->
+
+<main class="tour-container">
+
+<!-- Tour #1 -->
+
+<section
+id="wembley-stadium"
+class="tour-section">
+
+<div class="tour-video">
+    <img src="wembley.png" alt="tour" width="700" height="400">
+</div>
+
+<div class="tour-info">
+<h2>Wembley Stadium 1988</h2>
+<a href="https://www.youtube.com/watch?v=U_q9TR8tj_g&list=RDU_q9TR8tj_g&start_radio=1"><h3>BAD WORLD TOUR (FULL TOUR)</h3></a>
+
+</div>
+
+</section>
+
+<!-- Tour #2 -->
+
+<section
+id="live-in-bucharest"
+class="tour-section reverse">
+
+<div class="tour-video">
+        <img src="bucharest.png" alt="tour" width="725" height="400">
+</div>
+
+<div class="tour-info">
+
+<h2>Live in Bucharest</h2>
+<a href="https://www.youtube.com/watch?v=Hxgo-Qu-ZZE&list=RDHxgo-Qu-ZZE&start_radio=1&pp=ygUaSElTdG9yeTogTGl2ZSBpbiBCdWNoYXJlc3SgBwE%3D"><h3>HIStory WORLD TOUR (FULL TOUR)</h3></a>
+
+</div>
+
+</section>
+
+<!-- Tour #3 -->
+
+<section
+id="munich-tour"
+class="tour-section">
+
+<div class="tour-video">
+    <img src="munich-2.png" alt="tour" width="725" height="400">
+</div>
+
+<div class="tour-info">
+
+<h2>Munich 1997</h2>
+
+<a href="https://www.youtube.com/watch?v=SDDC-QdOR14&list=RDSDDC-QdOR14&start_radio=1"><h3>HIStory WORLD TOUR (FULL TOUR)</h3></a>
+
+</div>
+
+</section>
+
+<!-- Tour #4 -->
+
+<section
+id="moscow-tour"
+class="tour-section reverse">
+
+<div class="tour-video">
+    <img src="dangerous-2.png" alt="tour" width="725" height="400">
+</div>
+
+<div class="tour-info">
+
+<h2>Moscow Tour</h2>
+<a href="https://www.youtube.com/watch?v=V-8rTAbQIBs"><h3>HIStory WORLD TOUR (FULL TOUR)</h3></a>
+</div>
+
+</section>
+
+<!-- Tour #5 -->
+
+<section
+id="triumph-tour"
+class="tour-section">
+
+<div class="tour-video">
+    <img src="triumph.png" alt="tour" width="725" height="400">
+</div>
+
+<div class="tour-info">
+
+<h2>Triumph Tour</h2>
+<a href="https://www.youtube.com/watch?v=BBlgbcOTyA0&list=RDBBlgbcOTyA0&start_radio=1"><h3>TRIUMPH TOUR (FULL TOUR)</h3></a>
+</div>
+
+</div>
+
+</section>
+
+<!-- Tour #5 -->
+
+<section
+id="victory-tour"
+class="tour-section reverse">
+
+<div class="tour-video">
+    <img src="victory.png" alt="tour" width="725" height="400">
+</div>
+
+<div class="tour-info">
+
+<h2>Victory Tour</h2>
+<a href="https://www.youtube.com/watch?v=vnIk5mGy9As&list=RDvnIk5mGy9As&start_radio=1"><h3>VICTORY TOUR (FULL TOUR)</h3></a>
+</div>
+
+</section>
+
+<!-- Tour #6 -->
+
+<section
+id="30th-celebration"
+class="tour-section">
+
+<div class="tour-video">
+    <img src="30th.png" alt="tour" width="725" height="400">
+</div>
+
+<div class="tour-info">
+
+<h2>30th Anniversary Celebration</h2>
+<a href="https://www.youtube.com/watch?v=jaDEmw2ER0w&list=RDjaDEmw2ER0w&start_radio=1"><h3>(FULL "TOUR")</h3></a>
+
+</div>
+
+</section>
+
+<!-- Tour #7 -->
+
+<section
+id="buenos-aires-tour"
+class="tour-section reverse">
+
+<div class="tour-video">
+    <img src="ba.png" alt="tour" width="725" height="400">
+</div>
+
+<div class="tour-info">
+
+<h2>Buenos Aires Tour</h2>
+<a href="https://www.youtube.com/watch?v=fpWk1L6CGtA&list=RDfpWk1L6CGtA&start_radio=1"><h3>DANGEROUS TOUR (FULL TOUR)</h3></a>
+</div>
+
+</section>
+
+<!-- Tour #8 -->
+
+<section
+id="live-in-tunis"
+class="tour-section">
+
+<div class="tour-video">
+    <img src="tunis.png" alt="tour" width="725" height="400">
+</div>
+
+<div class="tour-info">
+
+<h2>Live in Tunis 1996</h2>
+<a href="https://www.youtube.com/watch?v=gmXm1VhXkdY&list=RDgmXm1VhXkdY&start_radio=1"><h3>HIStory TOUR (FULL TOUR)</h3></a>
+
+</div>
+
+</section>
+
+<!-- Tour #9 -->
+
+<section
+id="sydney-tour"
+class="tour-section reverse">
+
+<div class="tour-video">
+    <img src="sydney.png" alt="tour" width="725" height="400">
+</div>
+
+<div class="tour-info">
+
+<h2>Sydney Tour</h2>
+<a href="https://www.youtube.com/watch?v=ieZaa6QJSFw&list=RDieZaa6QJSFw&start_radio=1"><h3>HIStory TOUR (FULL TOUR)</h3></a>
+</div>
+
+</section>
+
+<!-- Tour #10 -->
+
+<section
+id="tokyo-tour"
+class="tour-section">
+
+<div class="tour-video">
+    <img src="tokyo.png" alt="tour" width="725" height="400">
+</div>
+
+<div class="tour-info">
+
+<h2>Tokyo Tour 1989</h2>
+<a href="https://www.youtube.com/watch?v=V1JJoe1UmMs&list=RDV1JJoe1UmMs&start_radio=1"><h3>BAD TOUR (FULL TOUR)</h3></a>
+
+</div>
+
+</section>
+
+<!-- Tour #11 -->
+
+<section
+id="seoul-tour"
+class="tour-section reverse">
+
+<div class="tour-video">
+    <img src="seoul.png" alt="tour" width="725" height="400">
+</div>
+
+<div class="tour-info">
+
+<h2>Seoul Tour</h2>
+<a href="https://www.youtube.com/watch?v=TCavlmH9aqg&t=2503s"><h3>HIStory TOUR (FULL TOUR)</h3></a>
+</div>
+
+</section>
+
+<!-- Tour #12 -->
+
+<section
+id="Glastonbury-tour"
+class="tour-section">
+
+<div class="tour-video">
+    <img src="Glastonbury.png" alt="tour" width="725" height="400">
+</div>
+
+<div class="tour-info">
+
+<h2>Radical Optimism Glastonbury Tour</h2>
+<a href="https://www.youtube.com/watch?v=RtVjmPIjyM0&list=RDRtVjmPIjyM0&start_radio=1
+"><h3>RADICAL OPTIMISM TOUR (FULL TOUR)</h3></a>
+
+</div>
+
+</section>
+
+<!-- Tour #13 -->
+
+<section
+id="paris-tour"
+class="tour-section reverse">
+
+<div class="tour-video">
+    <img src="paris.png" alt="tour" width="725" height="400">
+</div>
+
+<div class="tour-info">
+
+<h2>Future Nostalgia Paris Tour</h2>
+<a href=" https://www.youtube.com/watch?v=BizwwV2d1k0&list=RDBizwwV2d1k0&start_radio=1"><h3>FUTURE NOSTALGIA TOUR (FULL TOUR)</h3></a>
+</div>
+
+</section>
+
+<!-- Tour #14 -->
+
+<section
+id="mexio-tour"
+class="tour-section">
+
+<div class="tour-video">
+    <img src="mexico-city.png" alt="tour" width="725" height="400">
+</div>
+
+<div class="tour-info">
+
+<h2>Radical Optimism Mexico Tour</h2>
+<a href=" https://www.youtube.com/watch?v=vZYVkitGXBU&list=RDvZYVkitGXBU&start_radio=1&pp=ygUQZHVhIGxpcGEgY29uY2VydKAHAdIHCQmZCwGHKiGM7w%3D%3D"><h3>RADICAL OPTIMISM TOUR (FULL TOUR)</h3></a>
+
+</div>
+
+</section>
+
+<!-- Tour #15 -->
+
+<section
+id="Bangkok-tour"
+class="tour-section reverse">
+
+<div class="tour-video">
+    <img src="bangkok.png" alt="tour" width="725" height="400">
+</div>
+
+<div class="tour-info">
+
+<h2>The Self-Titled Tour Bangkok</h2>
+<a href="https://www.youtube.com/watch?v=VMw4t5aF3uk"><h3>THE SELF-TITLED TOUR (FULL TOUR)</h3></a>
+</div>
+
+</section>
+
+<!-- Tour #16 -->
+
+<section
+id="daydream-tour"
+class="tour-section">
+
+<div class="tour-video">
+    <img src="daydream-tour.png" alt="tour" width="725" height="400">
+</div>
+
+<div class="tour-info">
+
+<h2>The Daydream Tour</h2>
+<a href=" https://www.youtube.com/watch?v=2RZ7h3Idrt4&list=RD2RZ7h3Idrt4&start_radio=1"><h3>THE DAYDREAM TOUR (FULL TOUR)</h3></a>
+
+</div>
+
+</section>
+
+<!-- Tour #17 -->
+
+<section
+id="butterfly-tour"
+class="tour-section reverse">
+
+<div class="tour-video">
+    <img src="butterfly-tour.png" alt="tour" width="725" height="400">
+</div>
+
+<div class="tour-info">
+
+<h2>The Butterfly Tour</h2>
+<a href="https://www.youtube.com/watch?v=pPop_9WDW7E&list=RDpPop_9WDW7E&start_radio=1"><h3>BUTTERFLY TOUR (FULL TOUR)</h3></a>
+</div>
+
+</section>
+
+<!-- Tour #18 -->
+
+<section
+id="the-live-debut"
+class="tour-section">
+
+<div class="tour-video">
+    <img src="the live show.png" alt="tour" width="725" height="400">
+</div>
+
+<div class="tour-info">
+
+<h2>The Live Debut</h2>
+<a href="https://www.youtube.com/watch?v=1MJz1lmXNHk"><h3>THE LIVE DEBUT (FULL TOUR)</h3></a>
+
+</div>
+
+</section>
+
+</main>
+</body>
+</html>

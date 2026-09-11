@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Catalog</title>
+    <style>
+
+.topnav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px;
+  background: rgb(255, 255, 255);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  
+}
+.topnav a {
+  text-decoration: underline;
+  color: #4e4e4e;
+  font-size: 14px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+.topnav a:hover {
+  color:#5B3C77;
+  transform: scale(1.2);
+}
+        /* RESET */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        
+        body {
+          background: black;
+          font-family: sans-serif;
+        }
+        
+        /* INTRO */
+        .intro img {
+          width: 100%;
+          height: 60vh;
+          object-fit: cover;
+          display: block;
+        }
+        
+        /* GRID */
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: repeat(3, 1fr);
+          gap: 0;
+          width: 100%;
+        }
+        
+        /* TILE */
+        .tile {
+          position: relative;
+          width: 100%;
+          overflow: hidden;
+          aspect-ratio: 1/1;
+          cursor: pointer;
+        }
+        
+/* IMAGE */
+.tile .bg {
+width: 100%;
+height: 100%;
+object-fit:contain;
+background: black;
+transition: filter 0.5s ease, transform 0.5s ease;
+}
+        
+/* Blur for background image */
+ .tile:hover .bg {
+  filter: blur(6px) brightness(0.7);
+ transform: scale(1.05);
+}
+        
+ .overlay {
+  position: absolute;
+  inset: 0;
+ display: flex;
+align-items: center;
+ justify-content: center;
+}
+    
+.signature {
+  width: 100%;
+  max-width: 420px;
+  opacity: 0;
+  transform: scale(0.95) translateY(10px);
+  filter: blur(6px);
+  transition:
+    opacity 0.8s ease,
+    transform 1s ease,
+    filter 1s ease;
+  clip-path: inset(0 100% 0 0);
+}
+
+/* HOVER EFFECT */
+.tile:hover .signature {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  filter: blur(0);
+  clip-path: inset(0 0 0 0);
+  transition:
+    clip-path 2.5s ease,
+    opacity 0.8s ease,
+    transform 1s ease,
+    filter 1s ease;
+}
+
+ </style>
+</head>
+        
+<body>
+        
+ <!-- INTRO -->
+ <section class="intro">
+<img src="Artist-Catalog.png" alt="Artist-Catalog">
+</section>
+
+<div class="topnav">
+<a href="index.html">Lounge</a>
+<a href="artists.html">Artist Catalog</a>
+<a href="tours.html">Tours</a>
+<a href="#">Fashion</a>
+<a href="#">The Personal Vault</a>
+</div>
+          
+        <!-- GRID -->
+        <section class="grid">
+
+          <a href="aa-artist-page.html" class="tile-link">
+          <div class="tile" data-audio="One In A Million.mp3">
+            <img class="bg" src="AA Grid.png">
+            <div class="overlay">
+            <img class="signature" src="AA Logo.png">
+          </div>
+          </div>
+          </a>
+        
+          <a href="mj-artist-page.html" class="tile-link">
+          <div class="tile" data-audio="Human Nature.mp3">
+              <img class="bg" src="MJ Grid.png">
+              <div class="overlay">
+              <img class="signature" src="MJ Logo.png">
+          </div>
+          </div>
+          </a>
+
+          <a href="mc-artist-page.html" class="tile-link">
+          <div class="tile" data-audio="Dreamlover.mp3">
+            <img class="bg" src="MC Grid.png">
+            <div class="overlay">
+            <img class="signature" src="MC Logo.png">
+          </div>
+          </div>
+          </a>
+
+          <a href="dl-artist-page.html" class="tile-link">
+          <div class="tile" data-audio="Levetating.mp3">
+            <img class="bg" src="DL Grid.png">
+            <div class="overlay">
+            <img class="signature" src="DL Logo.png">
+          </div>
+          </div>
+          </a>
+        
+          <a href="k-artist-page.html" class="tile-link">
+          <div class="tile" data-audio="Cant-get-you-out-of-my-head.mp3">
+            <img class="bg" src="K Grid.png">
+            <div class="overlay">
+            <img class="signature" src="K Logo.png">
+          </div>
+          </div>
+          </a>
+        
+          <a href="sade-artist-page.html" class="tile-link">
+          <div class="tile" data-audio="Truth Or Dare.mp3">
+            <img class="bg" src="sade.png">
+            <div class="overlay">
+            <img class="signature" src="sade-logo.png">
+          </div>
+          </div>
+          </a>
+        
+          <a href="seb-artist-page.html" class="tile-link">
+          <div class="tile" data-audio="Murder-on-the-dancefloor.mp3">
+            <img class="bg" src="SEB Grid.png">
+            <div class="overlay">
+            <img class="signature" src="SEB Logo.png">
+          </div>
+          </div>
+          </a>
+        
+          <a href="ls-artist-page.html" class="tile-link">
+          <div class="tile" data-audio="All-around-the-world.mp3">
+            <img class="bg" src="LS Grid.png">
+            <div class="overlay">
+            <img class="signature" src="LS Logo.png">
+          </div>
+          </div>
+          </a>
+
+          <a href="d-artist-page.html" class="tile-link">
+          <div class="tile" data-audio="ABC.mp3">
+            <img class="bg" src="D Grid.png">
+            <div class="overlay">
+            <img class="signature" src="D Logo.png">
+          </div>
+          </div>
+          </a>
+        
+          <a href="lr-artist-page.html" class="tile-link">
+          <div class="tile" data-audio="Blue.mp3">
+            <img class="bg" src="LR Grid.png">
+            <div class="overlay">
+            <img class="signature" src="LR Logo.png">
+          </div>
+          </div>
+          </a>
+        
+          <a href="m-artist-page.html" class="tile-link">
+          <div class="tile" data-audio="Sing-it-back.mp3">
+            <img class="bg" src="M Grid.png">
+            <div class="overlay">
+            <img class="signature" src="M Logo.png">
+          </div>
+          </div>
+          </a>
+          
+          <a href="ak-artist-page.html" class="tile-link">
+          <div class="tile" data-audio="AK.mp3">
+            <img class="bg" src="AK Grid.png">
+            <div class="overlay">
+            <img class="signature" src="AK Logo.png">
+        </div>
+        </div>
+        </a>
+        
+</section>
+        
+<script>
+let currentAudio = null;
+let isHovering = false;
+
+const tiles = document.querySelectorAll(".tile");
+
+tiles.forEach(tile => {
+  const audio = new Audio(tile.dataset.audio);
+  audio.preload = "auto";
+
+  tile.addEventListener("mouseenter", () => {
+    isHovering = true;
+
+    // stop previous audio if switching tiles
+    if (currentAudio && currentAudio !== audio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+    }
+
+    audio.currentTime = 0;
+    audio.play();
+    currentAudio = audio;
+  });
+
+  tile.addEventListener("mouseleave", () => {
+    isHovering = false;
+
+    audio.pause();
+    audio.currentTime = 0;
+  });
+
+  audio.addEventListener("ended", () => {
+    if (isHovering) {
+      audio.currentTime = 0;
+      audio.play();
+    }
+  });
+});
+</script>
+        
+</body>
+</html>

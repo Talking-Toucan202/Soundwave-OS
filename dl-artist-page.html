@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dua Lipa - Artist Page</title>
+</head>
+<body>
+
+<style>
+.topnav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px;
+  background: rgb(0, 0, 0);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.topnav a {
+  text-decoration: underline;
+  font-weight: 100;
+  color: #ffffff;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.topnav a:hover {
+  color:#61A4BE;
+  transform: scale(1.2);
+}
+        
+        body {
+          background: black;
+          font-family: sans-serif;
+        }
+
+ /* ===== HERO SECTION ===== */
+        
+.hero{
+position:relative;
+width:100%;
+height:100vh;
+overflow:hidden;
+}
+        
+.hero video{
+position:absolute;
+top:50%;
+left:50%;
+width:100%;
+height:100%;
+object-fit:cover;
+transform:translate(-50%, -50%);
+z-index:1;
+}
+        
+.overlay{
+position:absolute;
+inset:0;
+background:rgba(0, 0, 0, 0.357);
+z-index:2;
+}
+        
+.signature-container{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%, -50%);
+z-index:3;
+width:80%;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+        
+.signature{
+width:750px;
+max-width:250%;
+          
+/* "written in" effect */
+opacity:0;
+filter:drop-shadow(0 0 15px rgba(255, 255, 255, 0.244));
+        
+animation:
+fadeIn 3.5s ease forwards,
+drawIn 0s ease forwards;
+animation-delay:0.3s;
+}
+        
+/* ===== ANIMATIONS ===== */
+        
+@keyframes fadeIn{
+to{opacity:1;}}
+@keyframes drawIn{
+from{clip-path: inset(0 100% 0 0);}
+to{clip-path: inset(0 0 0 0);}}
+@media(max-width:768px){.topnav{gap:25px;flex-wrap:wrap;padding:20px;}
+.topnav a{font-size:12px;}}
+</style>
+</head>
+<body>
+        
+<!-- ===== HERO SECTION ===== -->
+        
+<section class="hero">
+<video autoplay muted loop playsinline>
+<source src="dl video.mp4" type="video/mp4">
+</video>
+        
+<div class="overlay"></div>
+<div class="signature-container">
+<img class="signature" src="DL Logo.png" alt="Dua Lipa Signature">
+</div>
+        
+<!-- NAVIGATION -->
+<div class="topnav">
+<a href="index.html">Lounge</a>
+<a href="artists.html">Artist Catalog</a>
+<a href="tours.html">Tours</a>
+<a href="#">Fashion</a>
+<a href="#">The Personal Vault</a>
+</div>
+</section>
+
+<style>
+.dl-era-slider{ position:relative;width:100%;height:100vh;overflow:hidden;background:black;}
+
+.dl-viewport{
+width:100%;
+height:100%;
+overflow:hidden;
+}
+
+.dl-track{
+display:flex;
+height:100%;
+transition:transform 1s ease;
+}
+        
+.dl-slide{
+min-width:100%;
+position:relative;
+}
+        
+.dl-bg{
+position:absolute;
+inset:0;
+background-size:cover;
+background-position:center;
+filter:brightness(.90);
+}
+        
+.dl-overlay{
+position:absolute;
+inset:0;
+}
+.dl-content{
+position:relative;
+z-index:2;
+height:100%;
+display:flex;
+justify-content:flex-end;
+align-items:center;
+padding-right:9%;
+}
+        
+.dl-info{
+width:420px;
+max-width:90%;
+text-align:center;
+}
+
+.dl-links{
+list-style:none;
+padding:0;
+margin:0;
+}
+        
+.dl-links li{
+margin:18px 0;
+}
+        
+.dl-links a{
+color:white;
+text-decoration:none;
+text-transform:uppercase;
+letter-spacing:3px;
+transition:.3s ease;
+font-family:Helvetica, sans-serif;
+font-weight: 100;
+}
+        
+.dl-links a:hover{
+letter-spacing:5px;
+opacity:.7;
+}
+        
+ /* =ERA COLORS (HOVER)= */
+.era-dua-lipa .dl-links a:hover{ color:#CCBAD7; }
+.era-future-nostolgia .dl-links a:hover{ color:#ff7ee3; }
+.era-radical-optimism .dl-links a:hover{ color:#00B3C8; }
+        
+/* underline colors */
+.era-dua-lipa .dl-links a::after{ background:#CCBAD7; }
+.era-future-nostolgia .dl-links a::after{ background:#ff7ee3; }
+.era-radical-optimism .dl-links a::after{ background:#00B3C8; }
+        
+.dl-arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+z-index:10;
+background:none;
+border:none;
+color:white;
+font-size:3rem;
+cursor:pointer;
+padding:6px 12px;
+transition:.3s ease;
+}
+        
+.dl-arrow:hover{
+opacity:.5;
+}
+        
+.dl-prev{ left:15px; }
+.dl-next{ right:15px; }
+        
+.dl-dots{
+position:absolute;
+bottom:15px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+gap:10px;
+z-index:10;
+}
+        
+.dl-dot{
+width:10px;
+height:10px;
+border-radius:50%;
+background:rgba(255,255,255,.3);
+cursor:pointer;
+}
+        
+.dl-dot.active{
+background:white;
+}
+
+.dl-logo{
+  width:100%;
+  max-width:550px;
+
+  height:auto;
+  object-fit:contain;
+
+  display:block;
+}
+
+.explore-link {
+    font-size: 30px;
+}
+        
+/* = MOBILE= */
+ @media(max-width:768px){
+.dl-arrow{
+font-size:2.2rem;
+}
+.dl-info{
+    text-align:center;
+ }
+}
+</style>
+</head>
+        
+<body>
+<section class="dl-era-slider">
+ 
+  <style>
+  .dl-bg {
+  width: 100%;
+  height: 100vh;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+  </style>
+        
+<!-- LEFT ARROW -->
+<button class="dl-arrow dl-prev">&#10094;</button>
+<div class="dl-viewport"> <div class="dl-track">
+        
+ <!-- Dua Lipa (Album) -->
+<div class="dl-slide era-dua-lipa" id="slider-page-1">
+<div class="dl-bg" style="background-image:url('dua-lipa-first-album.png');">
+</div>
+<div class="dl-overlay"></div>
+        
+<div class="dl-content"><div class="dl-info">
+<img src="first-album-logo.png" class="dl-logo">
+        
+ <ul class="dl-links">
+<li><a href="DL-album-page.html" class="explore-link">Explore Era</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+ <!-- Future Nostolgia-->
+ <div class="dl-slide era-future-nostolgia">
+    <div class="dl-bg" style="background-image:url('future-nostolgia.png');"></div>
+    <div class="dl-overlay"></div>
+            
+    <div class="dl-content"><div class="dl-info">
+    <img src="future-nostalgia-logo.png" class="dl-logo">
+            
+     <ul class="dl-links">
+    <li><a href="FN-album-page.html" class="explore-link">Explore Era</a></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+
+     <!-- Radical Optimism -->
+<div class="dl-slide era-radical-optimism">
+    <div class="dl-bg" style="background-image:url('radical-optimism.png');"></div>
+    <div class="dl-overlay"></div>
+            
+    <div class="dl-content"><div class="dl-info">
+    <img src="radical-optimism-logo.png" class="dl-logo">
+            
+     <ul class="dl-links">
+    <li><a href="RO-album-page.html"class="explore-link">Explore Era</a></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+</div>
+</div>
+        
+<!-- RIGHT ARROW -->
+<button class="dl-arrow dl-next">&#10095;</button>
+        
+<!-- DOTS -->
+<div class="dl-dots"></div>
+</section>
+<script>
+
+const track = document.querySelector(".dl-track");
+const slides = document.querySelectorAll(".dl-slide");
+const nextBtn = document.querySelector(".dl-next");
+const prevBtn = document.querySelector(".dl-prev");
+const dotsContainer = document.querySelector(".dl-dots");
+        
+let index = 0;
+let intervalTime = 7000; // 7 seconds
+let autoSlide;
+        
+/* CREATE DOTS */
+slides.forEach((_, i) => {
+const dot = document.createElement("div");
+dot.classList.add("dl;-dot");
+if(i === 0) dot.classList.add("active");       
+dot.addEventListener("click", () => {
+index = i;
+updateSlider();
+resetAuto();
+});
+        
+dotsContainer.appendChild(dot);
+});
+const dots = document.querySelectorAll(".dl-dot");
+
+function updateSlider(){
+track.style.transform = `translateX(-${index * 100}%)`;
+dots.forEach(d => d.classList.remove("active"));
+dots[index].classList.add("active");
+}
+        
+        /* NEXT */
+        function nextSlide(){
+          index = (index + 1) % slides.length;
+          updateSlider();
+        }
+        
+        /* PREV */
+        function prevSlide(){
+          index = (index - 1 + slides.length) % slides.length;
+          updateSlider();
+        }
+        
+        /* BUTTONS */
+        nextBtn.addEventListener("click", () => {
+          nextSlide();
+          resetAuto();
+        });
+        
+        prevBtn.addEventListener("click", () => {
+          prevSlide();
+          resetAuto();
+        });
+        
+        /* AUTO SLIDE */
+        function startAuto(){
+          autoSlide = setInterval(nextSlide, intervalTime);
+        }
+        
+        function resetAuto(){
+          clearInterval(autoSlide);
+          startAuto();
+        }
+        
+        startAuto();
+        updateSlider();
+        </script>
+        </body>
+
+<section class="collector-section">
+
+  <style>
+
+  .collector-section{
+    padding: 80px 5vw;
+    position: relative;
+    background: transparent;
+    font-family: sans-serif;
+  }
+  
+  /* background layer */
+  .collector-section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: url(star-background.png);
+    opacity:.4;
+    z-index:0;
+  }
+  
+  .collector-header{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 35px auto;
+    position:relative;
+    z-index:2;
+  font-weight: 100;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  
+  .collector-header h1{
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 100;
+    color:#ffffff;
+    margin-bottom:10px;
+  }
+  
+  .collector-header p{
+    font-size:14px;
+    color:#ffffff;
+    line-height:1.6;
+    max-width:520px;
+    font-weight: 100;
+  }
+  
+  .collector-wrapper{
+    display:flex;
+    justify-content:center;
+    position:relative;
+    z-index:2;
+  }
+  
+  .collector-items{
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  
+  .collector-item{
+    flex:1;
+    min-width:200px;
+    max-width:320px;
+    border-radius:0px;
+    overflow:hidden;
+    cursor:pointer;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    box-shadow:
+      0 10px 18px rgba(0,0,0,0.55),
+      inset 0 1px 0 rgba(255,255,255,0.05);
+    transition:0.35s ease;
+    position:relative;
+  }
+  
+  .collector-item:hover{
+    transform: translateY(-24px) scale(1.08);
+    z-index:10;
+    box-shadow:
+      0 35px 50px rgba(0,0,0,0.7);
+  }
+  
+  .collector-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  
+
+  .collector-modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0, 0, 0, 0.767);
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+    padding:20px;
+  }
+  
+  .collector-modal-content{
+    width:95vw;
+    max-width:1800px;
+    background:transparent;
+    padding:20px;
+    text-align:center;
+    position:relative;
+}
+  
+  .collector-close{
+    position:absolute;
+    top:10px;
+    right:15px;
+    cursor:pointer;
+    font-size:20px;
+  }
+  
+  .collector-images{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    margin-top:15px;
+    flex-wrap:wrap;
+  }
+  
+  .collector-images img{
+    max-width:95vw;
+    max-height:90vh;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    display:block;
+    margin:auto;
+}
+  
+  @media(max-width:450px){
+    .collector-item{
+      width:80%;
+    }
+  }
+  </style>
+  
+  <div class="collector-header">
+    <h1>Song Match</h1>
+    <p>
+      Selct the current mood you are feeling, and below will reveal the perfect Dua Lipa songs for you to listen too!
+    </p>
+  </div>
+  
+  <!-- SHELF -->
+  <div class="collector-wrapper">
+    <div class="collector-shelf">
+      <div class="collector-items" id="collectorItems"></div>
+    </div>
+  </div>
+  
+
+  <div class="collector-modal" id="collectorModal">
+    <div class="collector-modal-content">
+      <div class="collector-close" onclick="closeCollector()">✕</div>
+      <h2 id="cTitle"></h2>
+      <p id="cDesc"></p>
+      <div class="collector-images" id="cImages"></div>
+    </div>
+  </div>
+  
+  <script>
+ 
+  const collectorData = [
+    {
+      title:"",
+      img:"chill.png",
+      desc:"",
+      angles:["chill-songs.png"]
+    },
+    {
+      title:"",
+      img:"Love.png",
+      desc:"",
+      angles:["love-songs.png"]
+    },
+    {
+      title:"",
+      img:"Nostalgic.png",
+      desc:"",
+      angles:["nostagic-songs.png"]
+    },
+    {
+      title:"",
+      img:"energetic.png",
+      desc:"",
+      angles:["energetic-songs.png"]
+    },];
+  
+  const container = document.getElementById("collectorItems");
+  
+  /* BUILD SHELF */
+  collectorData.forEach(item=>{
+    const div=document.createElement("div");
+    div.className="collector-item";
+    div.onclick=()=>openCollector(item);
+  
+    div.innerHTML=`
+  <img src="${item.img}" alt="">
+`;
+  
+    container.appendChild(div);
+  });
+  
+  /* OPEN MODAL */
+  function openCollector(item){
+    document.getElementById("collectorModal").style.display="flex";
+    document.getElementById("cTitle").innerText=item.title;
+    document.getElementById("cDesc").innerText=item.desc;
+  
+    const box=document.getElementById("cImages");
+    box.innerHTML="";
+  
+    item.angles.forEach(src=>{
+      const img=document.createElement("img");
+      img.src=src;
+      box.appendChild(img);
+    });
+  }
+  
+  /* CLOSE MODAL */
+  function closeCollector(){
+    document.getElementById("collectorModal").style.display="none";
+  }
+  </script>
+  </body>
+  </section>
+
+<section class="legacy-globe">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    color:white;
+}
+
+/*SECTION*/
+
+.legacy-globe{
+
+    position:relative;
+    min-height:30vh;
+    background:#61A4BE;
+    background-size:cover;
+    background-position:center;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:0px 0px;
+}
+
+.legacy-globe::before{
+    content:"";
+    position:absolute;
+    inset:0;
+}
+
+
+.globe-wrapper{
+
+    position:relative;
+    width:1400px;
+    max-width:95vw;
+    height:950px;
+    z-index:2;
+}
+
+
+.earth{
+
+    position:absolute;
+    width:1045px;
+    left:36%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    user-select:none;
+    pointer-events:none;
+}
+
+/* INTRO PANEL */
+
+.legacy-intro{
+
+    position:absolute;
+    right:-2px;
+    top:50%;
+    transform:translateY(-50%);
+    width:320px;
+    text-align:center;
+    z-index:5;
+}
+
+.legacy-intro h2{
+
+    font-size:3rem;
+    text-transform:uppercase;
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.legacy-intro h2 span{
+    color:#F492B5;
+    font-style:italic;
+    font-weight: 100;
+}
+
+
+.legacy-intro p{
+    color:rgba(255,255,255,.85);
+    line-height:1.8;
+    font-size:.95rem;
+}
+
+/* STARS */
+
+.star-pin{
+
+    position:absolute;
+    width:35px;
+    height:35px;
+    transform:translate(-50%,-50%);
+    cursor:pointer;
+    z-index:10;
+    transition:.3s;
+}
+
+.star-pin:hover{
+    transform:
+    translate(-50%,-50%)
+    scale(1.25);
+}
+
+.star-pin svg{
+
+    width:100%;
+    height:100%;
+    fill:#F492B5;
+    filter:
+    drop-shadow(0 0 10px#F492B5)
+    drop-shadow(0 0 20px #F492B5);
+}
+
+.star-pin.active svg{
+    fill:#ffbed5;
+}
+
+/* INFO CARD */
+
+.info-card{
+
+    position:absolute;
+    width:350px;
+    background: rgba(0, 0, 0, 0.218);
+    backdrop-filter:blur(15px);
+    border:  1px solid rgba(255, 255, 255, 0);
+    border-radius:20px;
+    padding:15px;
+    opacity:0;
+    pointer-events:none;
+    transition:.35s;
+    z-index:20;
+}
+
+.info-card.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.info-title{
+
+    font-size:1.8rem;
+    margin-bottom:15px;
+}
+
+.location-list{
+    list-style:none;
+}
+
+.location-list li{
+
+    padding:12px 0;
+    border-bottom:
+    1px solid rgba(255, 255, 255, 0.234);
+    cursor:pointer;
+    transition:.25s;
+}
+
+.location-list li:hover{
+
+    color:#F492B5;
+    padding-left:10px;
+}
+
+.detail-image{
+
+    width:100%;
+    height:125px;
+    border-radius:0px;
+    overflow:hidden;
+    margin:20px 0;
+    background:
+    rgba(255,255,255,.06);
+}
+
+.detail-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.watch-btn{
+
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 22px;
+    border-radius:999px;
+    border:1px solid white;
+    color:white;
+    text-decoration:none;
+}
+
+.watch-btn:hover{
+    background:white;
+    color:black;
+}
+
+.back-btn{
+    margin-top:20px;
+    color:#F492B5;
+    cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+    .earth{
+        width:525px;
+        left:50%;
+        top:35%;
+    }
+
+    .legacy-intro{
+
+        position:absolute;
+        width:90%;
+        left:50%;
+        top:80%;
+        transform:translateX(-50%);
+    }
+}
+
+</style>
+</head>
+<body>
+
+<section class="legacy-globe">
+
+<div class="globe-wrapper" id="globeWrapper">
+
+    <!-- INTRO -->
+
+    <div class="legacy-intro">
+
+        <h2>
+            Levitating<br>
+            <span>Around the World</span>
+        </h2>
+
+        <div class="intro-line"></div>
+
+        <p>
+            View some of the countries where Dua Lipa held her concerts! From her very first tour to her most recent. 
+        </p>
+
+    </div>
+
+    <!-- EARTH -->
+    <img
+    src="light-blue-earth.png"
+    class="earth">
+
+    <!-- North America -->
+
+    <div class="star-pin"
+    data-region="northamerica"
+    style="left:13%; top:43%;">
+
+        <svg viewBox="0 0 24 24">
+        <path d="M12 2l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 16l-5.4 2.8 1-6.1L3.2 8.4l6.1-.9z"/>
+        </svg>
+
+    </div>
+
+    <!-- Europe -->
+
+    <div class="star-pin"
+    data-region="europe"
+    style="left:36%; top:42%;">
+
+        <svg viewBox="0 0 24 24">
+        <path d="M12 2l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 16l-5.4 2.8 1-6.1L3.2 8.4l6.1-.9z"/>
+        </svg>
+
+    </div>
+
+    <!-- Asia -->
+    <div class="star-pin"
+    data-region="asia"
+    style="left:51%; top:35%;">
+
+        <svg viewBox="0 0 24 24">
+        <path d="M12 2l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 16l-5.4 2.8 1-6.1L3.2 8.4l6.1-.9z"/>
+        </svg>
+
+    </div>
+
+    <!-- South America -->
+    <div class="star-pin"
+    data-region="southamerica"
+    style="left:22%; top:60%;">
+
+        <svg viewBox="0 0 24 24">
+        <path d="M12 2l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 16l-5.4 2.8 1-6.1L3.2 8.4l6.1-.9z"/>
+        </svg>
+
+    </div>
+
+    <!-- Africa -->
+    <div class="star-pin"
+    data-region="africa"
+    style="left:38%; top:55%;">
+
+        <svg viewBox="0 0 24 24">
+        <path d="M12 2l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 16l-5.4 2.8 1-6.1L3.2 8.4l6.1-.9z"/>
+        </svg>
+
+    </div>
+
+     <!-- Oceania -->
+     <div class="star-pin"
+     data-region="oceania"
+     style="left:63%; top:66%;">
+ 
+         <svg viewBox="0 0 24 24">
+         <path d="M12 2l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 16l-5.4 2.8 1-6.1L3.2 8.4l6.1-.9z"/>
+         </svg>
+ 
+     </div>
+
+    <!-- East Asia -->
+    <div class="star-pin"
+    data-region="eastasia"
+    style="left:61%; top:50%;">
+
+        <svg viewBox="0 0 24 24">
+        <path d="M12 2l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 16l-5.4 2.8 1-6.1L3.2 8.4l6.1-.9z"/>
+        </svg>
+
+    </div>
+
+    <!-- CARD -->
+    <div
+    class="info-card"
+    id="infoCard"></div>
+
+</div>
+
+</section>
+
+<script>
+
+/* DATA */
+
+const locations = {
+
+    europe:{
+        title:"Europe",
+
+        events:[
+
+        {
+                name:"Radical Optimism: Glastonbury",
+                description: "-",
+                image:"Glastonbury.png",
+                link:"tours.html#Glastonbury-tour"
+            },
+
+            {
+                name:"Future Nostalgia: Paris",
+                description: "-",
+                image:"paris.png",
+                link:"tours.html#paris-tour"
+            },
+        ]
+    },
+
+    asia:{
+        title:"Asia",
+
+        events:[
+
+            {
+                name:"Check Back Soon!",
+                description: "-",
+                image:"#png",
+                link:"tours.html#"
+            },
+
+        ]
+    },
+
+    northamerica:{
+        title:"North America",
+
+        events:[
+
+            {
+                name:"Radical Optimism: Mexico",
+                description: "-",
+                image:"mexico-city.png",
+                link:"tours.html#mexico-tour"
+            },
+
+        ]
+    },
+
+    southamerica:{
+        title:"South America",
+
+        events:[
+
+            {
+                name:"Check Back Soon!",
+                description: "-",
+                image:"#.png",
+                link:"tours.html#"
+            }
+
+        ]
+    },
+
+    africa:{
+        title:"Africa",
+
+        events:[
+
+        {
+                name:"Check Back Soon!",
+                description: "-",
+                image:"#.png",
+                link:"tours.html#"
+            }
+
+        ]
+    },
+
+    oceania:{
+        title:"Oceania",
+
+        events:[
+
+        {
+                name:"Check Back Soon!",
+                description: "-",
+                image:"#.png",
+                link:"tours.html#"
+            }
+
+        ]
+    },
+
+
+    eastasia:{
+        title:"East Asia",
+
+        events:[
+
+            {
+                name:"The Self-Titled Tour: Bangkok",
+                description: "-",
+                image:"bangkok.png",
+                link:"tours.html#Bangkok-tour"
+            },
+        ]
+    }
+
+};
+
+/* ELEMENTS */
+
+const pins =
+document.querySelectorAll(".star-pin");
+
+const card =
+document.getElementById("infoCard");
+
+const wrapper =
+document.getElementById("globeWrapper");
+
+const line =
+document.getElementById("connectorLine");
+
+let currentPin = null;
+let currentRegion = null;
+
+/*LOCATION VIEW*/
+
+function showLocation(region,pin){
+
+    currentPin = pin;
+    currentRegion = region;
+
+    const data = locations[region];
+
+    card.innerHTML = `
+
+    <div class="info-title">
+        ${data.title}
+    </div>
+
+    <ul class="location-list">
+
+    ${data.events.map((event,index)=>`
+
+        <li onclick="
+        showEvent('${region}',${index})">
+
+        ${event.name}
+
+        </li>
+
+    `).join("")}
+
+    </ul>
+
+    `;
+
+    showCard(pin);
+}
+
+/* EVENT VIEW */
+
+window.showEvent =
+function(region,index){
+
+    const event =
+    locations[region].events[index];
+
+    card.innerHTML = `
+
+    <div class="info-title">
+    ${event.name}
+    </div>
+
+    <p>
+    ${event.description}
+    </p>
+
+    <div class="detail-image">
+        <img src="${event.image}">
+    </div>
+
+    <a href="${event.link}"
+    class="watch-btn">
+
+    View Tour Page
+
+    </a>
+
+    <div class="back-btn"
+    onclick="
+    showLocation(
+    '${region}',
+    currentPin
+    )">
+
+    ← Back
+
+    </div>
+
+    `;
+
+    drawLine();
+}
+
+/* CARD */
+
+function showCard(pin){
+
+    const pinRect =
+    pin.getBoundingClientRect();
+
+    const wrapRect =
+    wrapper.getBoundingClientRect();
+
+    card.style.left =
+    (pinRect.left -
+    wrapRect.left + 100)
+    +"px";
+
+    card.style.top =
+    (pinRect.top -
+    wrapRect.top - 50)
+    +"px";
+
+    card.classList.add("show");
+
+    drawLine();
+}
+
+/* EVENTS */
+
+pins.forEach(pin=>{
+
+    pin.addEventListener("click",()=>{
+      
+        document
+        .querySelectorAll(".star-pin")
+        .forEach(
+        s=>s.classList.remove("active")
+        );
+
+        pin.classList.add("active");
+
+        showLocation(
+        pin.dataset.region,
+        pin
+        );
+
+    });
+
+});
+
+window.addEventListener(
+"resize",
+()=>{
+
+    if(currentPin){
+
+        showCard(currentPin);
+    }
+
+});
+
+</script>
+</body>
+</section>
+</html>
+    </html>
